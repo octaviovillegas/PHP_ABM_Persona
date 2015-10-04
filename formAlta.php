@@ -42,7 +42,7 @@
 				<input type="text" name="nombre" id="nombre" placeholder="ingrese nombre" value="<?php echo isset($unaPersona) ?  $unaPersona->GetNombre() : "" ; ?>" /> <span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
 				<input type="text" name="dni" id="dni" placeholder="ingrese dni" value="<?php echo isset($unaPersona) ?  $unaPersona->GetDni() : "" ; ?>" <?php echo isset($unaPersona) ?  "readonly": "" ; ?>        /> <span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
 				<?php echo isset($unaPersona) ? 	"<p style='color: black;'>*El DNI no se puede modificar.</p> ": "" ; ?>
-				<input type="hidden" name="dniModif" value="<?php echo isset($unaPersona) ? $unaPersona->GetDni() : "" ; ?>" />
+				<input type="hidden" name="idOculto" value="<?php echo isset($unaPersona) ? $unaPersona->GetId() : "" ; ?>" />
 				<input type="file" name="foto" />
 
 
@@ -64,9 +64,9 @@ if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se 
 {
 
 
-	if($_POST['dniModif'] != "")//Solo para la foto
+	if($_POST['idOculto'] != "")//Solo para la foto
 	{
-		$unaPersona = Persona::TraerUnaPersona($_POST['dni']);
+		$unaPersona = Persona::TraerUnaPersona($_POST['idOculto']);
 		$foto=$unaPersona->GetFoto();
 		
 	}else
@@ -140,9 +140,9 @@ if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se 
 
 
 
-	if($_POST['dniModif'] != "")//paso por grilla y luego guardo
+	if($_POST['idOculto'] != "")//paso por grilla y luego guardo
 	{
-		$unaPersona = Persona::TraerUnaPersona($_POST['dni']);
+		$unaPersona = Persona::TraerUnaPersona($_POST['idOculto']);
 		$unaPersona->SetFoto($foto);
 		$unaPersona->SetApellido($_POST['apellido']);
 		$unaPersona->SetNombre($_POST['nombre']);
@@ -156,7 +156,7 @@ if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se 
 		$p->SetApellido($_POST['apellido']);
 		$p->SetNombre($_POST['nombre']);
 		$p->SetDni($_POST['dni']);
-		$p->Insertar();
+		persona::Insertar($p);
 
 	}	
 }

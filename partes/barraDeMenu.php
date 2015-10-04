@@ -5,6 +5,6 @@
 			<a class="btn btn-primary animated bounceInLeft" href="formAlta.php"><span class="glyphicon glyphicon-plus-sign">&nbsp;</span>Alta</a>
 		
 
-			<span id="tituloBarra"  class="animated bounceInRight">ABM -  Versión 1.0.3 -include y require</span>
+			<span id="tituloBarra"  class="animated bounceInRight">ABM -  Versión 1.0.4 -Base de datos</span>
 
 	</div>

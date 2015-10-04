@@ -1,13 +1,13 @@
 
      
-		function Borrar(dni)
+		function Borrar(id)
 		{
-			document.getElementById('dniParaBorrar').value = dni;
+			document.getElementById('dniParaBorrar').value = id;
 			document.frmBorrar.submit();
 		}
-		function Modificar(dni)
+		function Modificar(id)
 		{
-			document.getElementById('dniParaModificar').value = dni;
+			document.getElementById('dniParaModificar').value = id;
 			document.frmModificar.submit();
 		}
    
