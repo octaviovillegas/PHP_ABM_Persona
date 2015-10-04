@@ -27,7 +27,13 @@
         </script>
 </head>
 <body>
- <a class="btn btn-info" href="index.html">Menu principal</a>
+ 	<?php
+		
+		require_once"barraDeMenu.php";
+
+	 ?>
+
+
 <?php
 	if(isset($_POST['dniParaBorrar']))
 	{
@@ -56,6 +62,7 @@ $ArrayDePersonas = Persona::TraerTodasLasPersonas();
 echo "<table class='table'>
 		<thead>
 			<tr>
+				<th>  Foto   </th>
 				<th>  Apellido   </th>
 				<th>  Nombre     </th>
 				<th>  Dni        </th>
@@ -67,11 +74,12 @@ echo "<table class='table'>
 	foreach ($ArrayDePersonas as $p){
 
 		echo " 	<tr>
+					<td><img  class='fotoGrilla' src='fotos/".$p->GetFoto()."' /></td>
 					<td>".$p->GetApellido()."</td>
 					<td>".$p->GetNombre()."</td>
 					<td>".$p->GetDni()."</td>
-					<td><button class='btn btn-danger' name='Borrar' onclick='Borrar(".$p->GetDni().")'>Borrar</button></td>
-					<td><button class='btn btn-warning' name='Modificar' onclick='Modificar(".$p->GetDni().")'>Modificar</button></td>
+					<td><button class='btn btn-danger' name='Borrar' onclick='Borrar(".$p->GetDni().")'>   <span class='glyphicon glyphicon-remove-circle'>&nbsp;</span>Borrar</button></td>
+					<td><button class='btn btn-warning' name='Modificar' onclick='Modificar(".$p->GetDni().")'><span class='glyphicon glyphicon-edit'>&nbsp;</span>Modificar</button></td>
 				</tr>";
 	}	
 echo "</table>";		

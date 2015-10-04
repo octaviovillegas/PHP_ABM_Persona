@@ -22,6 +22,13 @@
 
 </head>
 <body>
+
+
+		<?php
+		
+		require_once"barraDeMenu.php";
+
+	 ?>
 	  <div class="container">
 	  	  <div class="page-header">
                 <h1>ABM</h1>      
