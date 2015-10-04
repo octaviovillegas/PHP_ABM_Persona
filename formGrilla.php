@@ -5,7 +5,7 @@
 <head>
 		<title>Ejemplos de ABM - con archivo de texto</title>
 
-		<?php require_once"referencias.php" ;?>
+		<?php require_once"partes/referencias.php" ;?>
 		<!--final de Estilos-->
 
         <script SRC="js/controlGrilla.js" TYPE="text/javascript"></script>
@@ -13,7 +13,7 @@
 </head>
 <body>
  	<?php		
-		include_once"barraDeMenu.php";
+		include_once"partes/barraDeMenu.php";
 	 ?>
 
 
@@ -35,12 +35,12 @@
 
 	<div class="container">
 		<div class="page-header">
-			<center><h1><?php echo $mensaje; ?> Ejemplo de Grilla</h1> </center>     
+			<center><h3><?php echo $mensaje; ?></h3><h1> Ejemplo de Grilla</h1> </center>     
 		</div>
 		<div class="CajaInicio animated bounceInRight">
 			<h1>Listado de personas</h1>
 			<?php		
-					include_once"grilla.php";
+					include_once"partes/grilla.php";
 	 			?>
 		</div>
 	</div>

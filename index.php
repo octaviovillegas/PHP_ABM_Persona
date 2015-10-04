@@ -2,23 +2,15 @@
 <head>
 	<title>Ejemplos de ABM - con archivo de texto</title>
 	  
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/estilo.css">
-		<link rel="stylesheet" type="text/css" href="css/animacion.css">
-		<!--final de Estilos-->
-       
+		<?php require_once"partes/referencias.php" ;?>
+		<!--final de Estilos-->    
 
       
        
 </head>
 <body>
-	<?php
-		
-		require_once"barraDeMenu.php";
-
+	<?php		
+		require_once"partes/barraDeMenu.php";
 	 ?>
 	  <div class="container">
 

@@ -17,7 +17,7 @@
 <body>
 		<?php
 		
-		require_once"barraDeMenu.php";
+		require_once"partes/barraDeMenu.php";
 
 	 ?>
 <?php     
@@ -37,7 +37,7 @@
 		<div class="CajaInicio animated bounceInRight">
 			<h1> <?php echo $titulo; ?> </h1>
 
-			<form id="FormIngreso" method="post" action="alta.php" enctype="multipart/form-data" >
+			<form id="FormIngreso" method="post" action="formAlta.php" enctype="multipart/form-data" >
 				<input type="text" name="apellido" id="apellido" placeholder="ingrese apellido" value="<?php echo isset($unaPersona) ?  $unaPersona->GetApellido() : "" ; ?>" /><span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
 				<input type="text" name="nombre" id="nombre" placeholder="ingrese nombre" value="<?php echo isset($unaPersona) ?  $unaPersona->GetNombre() : "" ; ?>" /> <span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
 				<input type="text" name="dni" id="dni" placeholder="ingrese dni" value="<?php echo isset($unaPersona) ?  $unaPersona->GetDni() : "" ; ?>" <?php echo isset($unaPersona) ?  "readonly": "" ; ?>        /> <span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
@@ -62,7 +62,19 @@
 
 if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se cumple ingreso por primera vez.
 {
-$foto="pordefecto.jpg";
+
+
+	if($_POST['dniModif'] != "")//Solo para la foto
+	{
+		$unaPersona = Persona::TraerUnaPersona($_POST['dni']);
+		$foto=$unaPersona->GetFoto();
+		
+	}else
+	{
+		$foto="pordefecto.png";
+	}
+
+	
 
 	if(!isset($_FILES["foto"]))
 	{
