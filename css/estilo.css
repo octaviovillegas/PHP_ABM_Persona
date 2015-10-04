@@ -3,6 +3,15 @@
   padding:0;
   border-radius: 10px;
 }
+
+.table-hover>tbody>tr:hover {
+      background-color: #8387F1;
+       border-radius: 0px ;
+}
+.table-hover>tbody>tr>td {
+     
+       border-radius: 0px ;
+}
  .btn{
       box-shadow: 1px 2px 5px #000000;   
   }
@@ -121,7 +130,8 @@ input[type="text"],input[type="file"]{
   border:1px solid #ccc;
   padding:2%;
   font-family:'Open Sans',sans-serif;
-  font-size:95%;
+  font-size:140%;
+  font-weight: 800;
   color:#555;
 }
 select{
