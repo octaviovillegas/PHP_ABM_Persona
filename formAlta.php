@@ -24,9 +24,9 @@
 	require_once("clases\Personas.php");
 
 	$titulo = "ALTA";
-	if(isset($_POST['dniParaModificar'])) //viene de la grilla
+	if(isset($_POST['idParaModificar'])) //viene de la grilla
 	{
-		$unaPersona = Persona::TraerUnaPersona($_POST['dniParaModificar']);
+		$unaPersona = Persona::TraerUnaPersona($_POST['idParaModificar']);
 		$titulo = "MODIFICACIÓN";
 	} 
 ?>
@@ -142,21 +142,21 @@ if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se 
 
 	if($_POST['idOculto'] != "")//paso por grilla y luego guardo
 	{
-		$unaPersona = Persona::TraerUnaPersona($_POST['idOculto']);
-		$unaPersona->SetFoto($foto);
-		$unaPersona->SetApellido($_POST['apellido']);
-		$unaPersona->SetNombre($_POST['nombre']);
-		//$unaPersona->SetDni($_POST['dni']);		
-		$retorno = Persona::Modificar($unaPersona);
+		$PersonaBuscada = Persona::TraerUnaPersona($_POST['idOculto']);
+		$PersonaBuscada->SetFoto($foto);
+		$PersonaBuscada->SetApellido($_POST['apellido']);
+		$PersonaBuscada->SetNombre($_POST['nombre']);
+		//$PersonaBuscada->SetDni($_POST['dni']);		
+		$retorno = Persona::ModificarPersona($PersonaBuscada);
 	}
 	else// si es un alta
 	{
-		$p = new Persona();	
-		$p->SetFoto($foto);
-		$p->SetApellido($_POST['apellido']);
-		$p->SetNombre($_POST['nombre']);
-		$p->SetDni($_POST['dni']);
-		persona::Insertar($p);
+		$PersonaNueva = new Persona();	
+		$PersonaNueva->SetFoto($foto);
+		$PersonaNueva->SetApellido($_POST['apellido']);
+		$PersonaNueva->SetNombre($_POST['nombre']);
+		$PersonaNueva->SetDni($_POST['dni']);
+		persona::InsertarPersona($PersonaNueva);
 
 	}	
 }

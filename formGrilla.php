@@ -19,18 +19,18 @@
 
 	<?php
 		$mensaje = "Bienvenido .";
-		if(isset($_POST['dniParaBorrar']))
+		if(isset($_POST['idParaBorrar']))
 		{
-			$resultado = Persona::Borrar($_POST['dniParaBorrar']);
+			$resultado = Persona::BorrarPersona($_POST['idParaBorrar']);
 			$mensaje = "SE HA BORRADO EXITOSAMENTE!!!";
 		}
 	?>	
 	<form name="frmBorrar" method="POST" >
-		<input type="hidden" name="dniParaBorrar" id="dniParaBorrar" />
+		<input type="hidden" name="idParaBorrar" id="idParaBorrar" />
 	</form>
 	
 	<form name="frmModificar" method="POST" action="formAlta.php" >
-		<input type="hidden" name="dniParaModificar" id="dniParaModificar" />
+		<input type="hidden" name="idParaModificar" id="idParaModificar" />
 	</form>
 
 	<div class="container">
