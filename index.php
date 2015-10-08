@@ -15,7 +15,7 @@
 	  <div class="container">
 
 	  	  <div class="page-header " >
-                <h1>ABM - con archivo de texto Versión 1.0.2 Con foto</h1>      
+                <h1>ABM Personas</h1>      
             </div>
 					<div class="CajaInicio animated bounceInRight">
 							<h1>PERSONAS</h1>
