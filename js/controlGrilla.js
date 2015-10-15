@@ -8,7 +8,7 @@ function Borrar(id)
         type: 'DELETE',
         url: "http://localhost:8080/LaboIV/ws1/ws/personas/" + id,
         success: function(data, textStatus, jqXHR){
-            console.log(textStatus);
+            //console.log(textStatus);
 			cargar();            
         },
         error: function(jqXHR, textStatus, errorThrown){
