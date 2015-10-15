@@ -5,7 +5,7 @@
 		<?php require_once"partes/referencias.php" ;?>
 		<!--final de Estilos-->    
 
-      
+      <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
        
 </head>
 <body>
@@ -15,7 +15,7 @@
 	  <div class="container">
 
 	  	  <div class="page-header " >
-                <h1>ABM Personas</h1>      
+                <h1>ABM - con archivo de texto Versión 1.0.2 Con foto</h1>      
             </div>
 					<div class="CajaInicio animated bounceInRight">
 							<h1>PERSONAS</h1>
