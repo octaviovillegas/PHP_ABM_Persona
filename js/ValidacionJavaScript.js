@@ -31,7 +31,34 @@
 
 			if(envio){
 				document.getElementById("hdnAgregar").value="Guardar";
-				document.getElementById("FormIngreso").submit();
+				// document.getElementById("FormIngreso").submit();
+				var foto = $('img').attr('src');
+				foto = foto.split('/');
+				
+				if ($('#idParaModificar').val() != 0)
+					var tipo = 'PUT';
+				else
+					var tipo = 'POST';
+				
+				$.ajax({
+			        type: tipo,
+			        url: "http://localhost:8080/LaboIV/ws1/ws/personas/",// + $('#id').val(),
+			        
+			        data: { apellido: $('#apellido').val(),
+			        		nombre: $('#nombre').val(),
+			        		dni: $('#dni').val(),
+			        		id: $('#id').val(),
+			        		foto: foto[1]
+			        		},
+			        success: function(data, textStatus, jqXHR){
+			            console.log(data);
+			            // document.getElementById("FormIngreso").submit();
+			        },
+			        error: function(jqXHR, textStatus, errorThrown){
+			            console.log(errorThrown);
+			            alert("No se pudo modificar " + errorThrown);
+			        }
+			    });
 			}
 		}
 		function ValidarCadena(cad)
