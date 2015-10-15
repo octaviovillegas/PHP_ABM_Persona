@@ -2,7 +2,7 @@
 <head>
 	<title>Ejemplos de ABM - con archivo de texto</title>
 	  
-		<?php require_once"partes/referencias.php" ;?>
+		<?php require_once"partes/referencias.php" ;/**/?>
 		<!--final de Estilos-->    
 
       <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>

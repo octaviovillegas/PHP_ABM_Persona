@@ -34,9 +34,8 @@
 				// document.getElementById("FormIngreso").submit();
 				var foto = $('img').attr('src');
 				foto = foto.split('/');
-				console.log(foto[1]);
-
-				if ($('#idParaModificar').val())
+				
+				if ($('#idParaModificar').val() != 0)
 					var tipo = 'PUT';
 				else
 					var tipo = 'POST';
@@ -52,7 +51,7 @@
 			        		foto: foto[1]
 			        		},
 			        success: function(data, textStatus, jqXHR){
-			            console.log(data);
+			            // console.log(data);
 			            // document.getElementById("FormIngreso").submit();
 			        },
 			        error: function(jqXHR, textStatus, errorThrown){
