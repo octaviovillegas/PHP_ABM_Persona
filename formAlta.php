@@ -24,7 +24,7 @@
 	require_once("clases\Personas.php");
 
 	$titulo = "ALTA";
-	if(isset($_POST['idParaModificar'])) //viene de la grilla
+	if(isset($_POST['idParaModificar'])) /*viene de la grilla*/
 	{
 		$unaPersona = Persona::TraerUnaPersona($_POST['idParaModificar']);
 		$titulo = "MODIFICACIÓN";
