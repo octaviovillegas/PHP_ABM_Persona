@@ -39,7 +39,8 @@
 		</div>
 		<div class="CajaInicio animated bounceInRight">
 			<h1>Listado de personas</h1>
-				<div x></div>
+			<!-- id="listaPersonas" -->
+				
 				<table class='table table-hover table-responsive' id="listaPersonas">
 					<thead>
 						<tr>
@@ -51,7 +52,7 @@
 							<th>  MODIFICAR  </th>
 						</tr> 
 					</thead>
-					<tr id="listaPersonas">
+					<tr >
 						
 					</tr>
 				</table>
