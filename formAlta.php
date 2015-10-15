@@ -9,9 +9,9 @@
 		<link rel="stylesheet" type="text/css" href="css/estilo.css">
 		<link rel="stylesheet" type="text/css" href="css/animacion.css">
 		<!--final de Estilos-->
-		
+		<script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
 		<script type="text/javascript" src="js/ValidacionjavaScript.js">
-	
+		
         </script>
 </head>
 <body>
@@ -42,17 +42,17 @@
 				<input type="text" name="nombre" id="nombre" placeholder="ingrese nombre" value="<?php echo isset($unaPersona) ?  $unaPersona->GetNombre() : "" ; ?>" /> <span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
 				<input type="text" name="dni" id="dni" placeholder="ingrese dni" value="<?php echo isset($unaPersona) ?  $unaPersona->GetDni() : "" ; ?>" <?php echo isset($unaPersona) ?  "readonly": "" ; ?>        /> <span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
 				<?php echo isset($unaPersona) ? 	"<p style='color: black;'>*El DNI no se puede modificar.</p> ": "" ; ?>
-				<input type="hidden" name="idOculto" value="<?php echo isset($unaPersona) ? $unaPersona->GetId() : "" ; ?>" />
+				<input type="hidden" name="idOculto" id="id" value="<?php echo isset($unaPersona) ? $unaPersona->GetId() : "" ; ?>" />
 				<input type="file" name="foto" />
 
 
-				<img  src="fotos/<?php echo isset($unaPersona) ? $unaPersona->GetFoto() : "pordefecto.png" ; ?>" class="fotoform"/>
+				<img  src="fotos/<?php echo isset($unaPersona) ? $unaPersona->GetFoto() : "pordefecto.png" ; ?>" class="fotoform" id="foto"/>
 				<p style="  color: black;">*La foto se actualiza al guardar.</p>
 
 
 				<a class="btn btn-info " name="guardar" onclick="Validar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
-
-
+					
+				<input type="hidden" value="<?php echo $_POST['idParaModificar']; ?>" id="idParaModificar" name="agregar" />
 				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
 				</div>
 
@@ -140,25 +140,25 @@ if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se 
 
 
 
-	if($_POST['idOculto'] != "")//paso por grilla y luego guardo
-	{
-		$PersonaBuscada = Persona::TraerUnaPersona($_POST['idOculto']);
-		$PersonaBuscada->SetFoto($foto);
-		$PersonaBuscada->SetApellido($_POST['apellido']);
-		$PersonaBuscada->SetNombre($_POST['nombre']);
-		//$PersonaBuscada->SetDni($_POST['dni']);		
-		$retorno = Persona::ModificarPersona($PersonaBuscada);
-	}
-	else// si es un alta
-	{
-		$PersonaNueva = new Persona();	
-		$PersonaNueva->SetFoto($foto);
-		$PersonaNueva->SetApellido($_POST['apellido']);
-		$PersonaNueva->SetNombre($_POST['nombre']);
-		$PersonaNueva->SetDni($_POST['dni']);
-		persona::InsertarPersona($PersonaNueva);
+	// if($_POST['idOculto'] != "")//paso por grilla y luego guardo
+	// {
+	// 	$PersonaBuscada = Persona::TraerUnaPersona($_POST['idOculto']);
+	// 	$PersonaBuscada->SetFoto($foto);
+	// 	$PersonaBuscada->SetApellido($_POST['apellido']);
+	// 	$PersonaBuscada->SetNombre($_POST['nombre']);
+	// 	//$PersonaBuscada->SetDni($_POST['dni']);		
+	// 	$retorno = Persona::ModificarPersona($PersonaBuscada);
+	// }
+	// else// si es un alta
+	// {
+	// 	$PersonaNueva = new Persona();	
+	// 	$PersonaNueva->SetFoto($foto);
+	// 	$PersonaNueva->SetApellido($_POST['apellido']);
+	// 	$PersonaNueva->SetNombre($_POST['nombre']);
+	// 	$PersonaNueva->SetDni($_POST['dni']);
+	// 	persona::InsertarPersona($PersonaNueva);
 
-	}	
+	// }	
 }
 ?>
 		</div>

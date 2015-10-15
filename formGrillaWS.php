@@ -11,7 +11,7 @@
         <script SRC="js/controlGrilla.js" TYPE="text/javascript"></script>
         <!--final logica de programación-->
 </head>
-<body>
+<body onload="cargar()">
  	<?php		
 		include_once"partes/barraDeMenu.php";
 	 ?>
@@ -39,8 +39,25 @@
 		</div>
 		<div class="CajaInicio animated bounceInRight">
 			<h1>Listado de personas</h1>
+				<div x></div>
+				<table class='table table-hover table-responsive' id="listaPersonas">
+					<thead>
+						<tr>
+							<th>  Foto   </th>				
+							<th>  Nombre     </th>
+							<th>  Apellido   </th>
+							<th>  Dni        </th>
+							<th>  BORRAR     </th>
+							<th>  MODIFICAR  </th>
+						</tr> 
+					</thead>
+					<tr id="listaPersonas">
+						
+					</tr>
+				</table>
+			</div>
 			<?php		
-					include_once"partes/grilla.php";
+					// include_once"partes/grilla.php";
 	 			?>
 		</div>
 	</div>

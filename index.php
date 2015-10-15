@@ -5,7 +5,7 @@
 		<?php require_once"partes/referencias.php" ;?>
 		<!--final de Estilos-->    
 
-      
+      <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
        
 </head>
 <body>
