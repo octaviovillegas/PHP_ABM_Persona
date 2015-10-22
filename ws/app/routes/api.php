@@ -47,8 +47,8 @@ $app->post("/personas/", function() use($app)
 	$nombre = $app->request->post("nombre");
 	$dni = $app->request->post("dni");
 	$apellido = $app->request->post("apellido");
-	$foto = "pordefecto.png";//$app->request->post("foto");
-
+	$foto = ($app->request->post("foto") != "")? $app->request->post("foto") : "pordefecto.png"; 
+	// $foto = "pordefecto.png";
 	$cnn = Conexion::DameAcceso();
 	$sentencia = $cnn->prepare('CALL InsertarPersona (?,?,?,?)');
 	

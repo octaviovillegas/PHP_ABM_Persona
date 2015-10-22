@@ -8,6 +8,7 @@
 		<?php require_once"partes/referencias.php" ;?>
 		<!--final de Estilos-->
 		<script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="./js/url.js"></script>
         <script SRC="./js/controlGrilla.js" TYPE="text/javascript"></script>
         <!--final logica de programación-->
 </head>

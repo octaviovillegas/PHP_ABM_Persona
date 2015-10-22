@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/animacion.css">
 		<!--final de Estilos-->
 		<script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" src="./js/url.js"></script>
 		<script type="text/javascript" src="js/ValidacionjavaScript.js">
 	
         </script>
@@ -38,14 +39,14 @@
 		</div>
 		<div class="CajaInicio animated bounceInRight">
 			<h1> <?php echo $titulo; ?> </h1>
-
+			<!--  -->
 			<form id="FormIngreso" method="post" action="formAlta.php" enctype="multipart/form-data" >
 				<input type="text" name="apellido" id="apellido" placeholder="ingrese apellido" value="<?php echo isset($unaPersona) ?  $unaPersona->GetApellido() : "" ; ?>" /><span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
 				<input type="text" name="nombre" id="nombre" placeholder="ingrese nombre" value="<?php echo isset($unaPersona) ?  $unaPersona->GetNombre() : "" ; ?>" /> <span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
 				<input type="text" name="dni" id="dni" placeholder="ingrese dni" value="<?php echo isset($unaPersona) ?  $unaPersona->GetDni() : "" ; ?>" <?php echo isset($unaPersona) ?  "readonly": "" ; ?>        /> <span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
 				<?php echo isset($unaPersona) ? 	"<p style='color: black;'>*El DNI no se puede modificar.</p> ": "" ; ?>
 				<input type="hidden" name="idOculto" id="id" value="<?php echo isset($unaPersona) ? $unaPersona->GetId() : "" ; ?>" />
-				<input type="file" name="foto" />
+				<input type="file" name="foto" id="imagen" />
 
 
 				<img  src="fotos/<?php echo isset($unaPersona) ? $unaPersona->GetFoto() : "pordefecto.png" ; ?>" class="fotoform" id="foto"/>
@@ -116,7 +117,7 @@ if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se 
 					else
 					{
 						//$destino =  "fotos/".$_FILES["foto"]["name"];
-						$destino = "fotos/". $_POST['dni'].".".$Extension;
+						$destino = "fotos/". $_FILES['foto']['name'];//.".".$Extension;
 						$foto=$_POST['dni'].".".$Extension;
 						//MUEVO EL ARCHIVO DEL TEMPORAL AL DESTINO FINAL
     					if (move_uploaded_file($_FILES["foto"]["tmp_name"],$destino))
@@ -142,25 +143,25 @@ if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se 
 
 
 
-	if($_POST['idOculto'] != "")//paso por grilla y luego guardo
-	{
-		$PersonaBuscada = Persona::TraerUnaPersona($_POST['idOculto']);
-		$PersonaBuscada->SetFoto($foto);
-		$PersonaBuscada->SetApellido($_POST['apellido']);
-		$PersonaBuscada->SetNombre($_POST['nombre']);
-		//$PersonaBuscada->SetDni($_POST['dni']);		
-		$retorno = Persona::ModificarPersona($PersonaBuscada);
-	}
-	else// si es un alta
-	{
-		$PersonaNueva = new Persona();	
-		$PersonaNueva->SetFoto($foto);
-		$PersonaNueva->SetApellido($_POST['apellido']);
-		$PersonaNueva->SetNombre($_POST['nombre']);
-		$PersonaNueva->SetDni($_POST['dni']);
-		persona::InsertarPersona($PersonaNueva);
+	// if($_POST['idOculto'] != "")//paso por grilla y luego guardo
+	// {
+	// 	$PersonaBuscada = Persona::TraerUnaPersona($_POST['idOculto']);
+	// 	$PersonaBuscada->SetFoto($foto);
+	// 	$PersonaBuscada->SetApellido($_POST['apellido']);
+	// 	$PersonaBuscada->SetNombre($_POST['nombre']);
+	// 	//$PersonaBuscada->SetDni($_POST['dni']);		
+	// 	$retorno = Persona::ModificarPersona($PersonaBuscada);
+	// }
+	// else// si es un alta
+	// {
+	// 	$PersonaNueva = new Persona();	
+	// 	$PersonaNueva->SetFoto($foto);
+	// 	$PersonaNueva->SetApellido($_POST['apellido']);
+	// 	$PersonaNueva->SetNombre($_POST['nombre']);
+	// 	$PersonaNueva->SetDni($_POST['dni']);
+	// 	persona::InsertarPersona($PersonaNueva);
 
-	}	
+	// }	
 }
 ?>
 		</div>

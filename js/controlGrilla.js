@@ -1,12 +1,11 @@
-
-     
+ 
 function Borrar(id)
 {
 	
 	// var id = $("#idParaBorrar").val();
 	$.ajax({
         type: 'DELETE',
-        url: "http://localhost:8080/LaboIV/ws1/ws/personas/" + id,
+        url: datos.urlLocal + id,
         success: function(data, textStatus, jqXHR){
             //console.log(textStatus);
 			cargar();            
@@ -42,7 +41,7 @@ function renderLista(data) {
 function cargar(){
 		$.ajax({
 	        type: "GET",
-	        url: "http://localhost:8080/LaboIV/ws1/ws/personas/",
+	        url: datos.urlLocal,
 	        success: function(data, textStatus, jqXHR){
 	            // console.log(data);
 	            renderLista(data);
