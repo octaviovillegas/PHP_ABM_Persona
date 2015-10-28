@@ -7,7 +7,7 @@ class Conexion
  	
  	private $host = 'mysql:host=localhost;dbname=ejemploabm;charset=utf8';
  	private $usuario = "root";
- 	private $clave = "123";
+ 	private $clave = "";
 
     private function __construct()
     {

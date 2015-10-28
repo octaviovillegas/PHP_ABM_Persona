@@ -45,8 +45,8 @@
 								
 				var img = (file != undefined)? file.name: foto[1];
 				
-				// var formData = new FormData($("#FormIngreso")[0]);
-			
+				var formData = new FormData($("#FormIngreso")[0]);			
+				console.log(formData);
 				
 				$.ajax({
 			        type: tipo,
@@ -60,8 +60,9 @@
 			        		foto: ($("#imagen")[0].files[0] != undefined) ? $("#imagen")[0].files[0].name : foto[1]
 			        		},
 			        success: function(data, textStatus, jqXHR){
-			            console.log(data);
-			            document.getElementById("FormIngreso").submit();
+			            // console.log(data);
+			            subirFoto(formData);
+			            // document.getElementById("FormIngreso").submit();
 			        },
 			        error: function(jqXHR, textStatus, errorThrown){
 			            console.log(jqXHR);
@@ -71,6 +72,30 @@
 			}
 		}
 		
+		function subirFoto(formData){
+			$.ajax({
+			    url: datos.urlFoto,  
+			    type: 'POST',
+			    data: formData,			    
+			    cache: false,//Para subir archivos via ajax
+			    contentType: false,//Para subir archivos via ajax
+			    processData: false,//Para subir archivos via ajax
+			    beforeSend: function(){
+			        $("#mensaje").html("Subiendo imagen");    
+			    },
+			    success: function(data){
+			    	// console.log(data);
+			        // $("#mensaje").html("Imagen subida correctamente");
+			        $("#foto").attr("src", "fotos/"+data);
+			        
+			    },
+			    error: function(data){
+			    	console.log(data);
+			        $("#mensaje").html("Error al subir imagen");			        
+			    }
+			});
+		}
+
 		function ValidarCadena(cad)
 		{
 			if(cad === "")
